@@ -7,7 +7,7 @@ const App = () => {
   const [Posts, setPosts] = useState([]);
 
   useEffect(()=>{  
-    // Fetch data from the backend API 
+    // Fetch data from the backend API Data
     axios.get('http://localhost:8000/api/allPosts')
       .then((response) => {
         setPosts(response.data);
