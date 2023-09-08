@@ -1,0 +1,122 @@
+#navbar{
+    box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px;
+}
+#navbar img{
+    height: 60px;
+}
+#navbar a{
+    color: rgb(105, 105, 105);
+    text-decoration: none;
+}
+#navbar button{
+    padding: 7px 20px;
+    border-radius: 30px;
+    background-color: green;
+}
+
+#category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#category .category_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(203, 203, 203);
+}
+#category a{
+    font-family: 'karla';
+    font-size: 16px;
+    color: rgb(64, 64, 64);
+    margin: 20px 15px 10px 10px;
+    text-decoration: none;
+}
+
+
+/* ##################################   Home   ###############################################  */
+
+#home{
+    padding: 40px 6vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+#home #hero1{
+    width: 55vw;
+}
+#home #hero1 img{
+    width: 100%;
+    border-radius: 10px;
+}
+#home #hero1 .content{
+    padding: 10px 20px;
+}
+#home #hero1 h1{
+    font-family: 'poppins';
+    font-weight: 700;
+    font-size: 35px;
+}
+#home #hero1 p{
+    font-size: 17px;
+    color: rgb(78, 78, 78);
+}
+#home #user{
+    display: flex;
+}
+
+
+
+
+/* #####################   POST  ######################### */
+
+#post{
+    width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px;
+    background-color: rgb(246, 246, 246);
+    margin-top: 40px; 
+    overflow: hidden;
+    cursor: pointer;
+}
+#post img{
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px;
+    cursor: pointer;
+}
+#post img:hover{
+    transform: scale(1.03, 1.03);
+}
+#post h3{
+    font-size: 23px;
+    font-family: 'montserrat';
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+#post:hover h3{
+    color: rgb(44, 85, 147);
+}
+#post #desc{
+    letter-spacing: 0.3px;
+    color: rgb(64, 64, 64);
+    font-size: 15px;
+}
+#post h6{
+    font-weight: 600;
+    color: rgb(81, 81, 81);
+}
+#post #author{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#post h5{
+    color: rgb(81, 81, 81);
+    font-size: 16px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
