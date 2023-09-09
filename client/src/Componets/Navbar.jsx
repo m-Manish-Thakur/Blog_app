@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary px-5" id='navbar'>
+            <nav class="navbar navbar-expand-lg  px-5" id='navbar'>
               <div class="container-fluid">
                   <img src="Images/logo1.png" class='navbar-brand' alt="" />
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,10 +14,10 @@ const Navbar = () => {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0" style={{marginLeft:'5vw'}}>
                     <li class="nav-item mx-2">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      <Link to='/'><a class="nav-link active" aria-current="page" href="#">Home</a></Link>
                     </li>
                     <li class="nav-item mx-2">
-                      <a class="nav-link" href="#">Explore Blogs</a>
+                      <Link to='allBlogs'><a class="nav-link" href="#">Explore Blogs</a></Link>
                     </li>
                     <li class="nav-item mx-2">
                       <Link to='/addPost'><a class="nav-link" href="#">Add Blog</a></Link>

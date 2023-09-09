@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import './addPost.css'
+import './style.css'
 
 
 const AddPost = () => {
@@ -32,6 +32,8 @@ const AddPost = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
+      
+      window.location.replace("/singlePost/"+  res.data._id);
       // console.log(res.data);
     }
 
@@ -58,12 +60,12 @@ const AddPost = () => {
             <select class="form-select" aria-label="Default select example"
                     onChange={(e) => setCate(e.target.value)}>
               <option selected>Choose Category</option>
-              <option value="Web Developmet">Coding</option>
-              <option value="Backend">Health and fitness</option>
-              <option value="React js">Food</option>
-              <option value="Software Engineering">Lifestyle</option>
-              <option value="AI ML">Photography</option>
-              <option value="UI/UX">Sports</option>
+              <option value="Coding">Coding</option>
+              <option value="Health & fitness">Health & fitness</option>
+              <option value="Food">Food</option>
+              <option value="Lifestyle">Lifestyle</option>
+              <option value="Photography">Photography</option>
+              <option value="Sports">Sports</option>
             </select>
 
             <button type="submit" class="btn btn-dark mt-4"><i class="fa-solid fa-upload" style={{marginRight:'5px'}}></i> Publish</button>

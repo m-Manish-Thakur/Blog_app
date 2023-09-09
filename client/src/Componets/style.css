@@ -1,5 +1,13 @@
 #navbar{
-    box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px;
+    /* box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    /* background-color: antiquewhite; */
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 100vw;
+    z-index: 10;
+    padding: 5px 5vw;
 }
 #navbar img{
     height: 60px;
@@ -13,11 +21,12 @@
     border-radius: 30px;
     background-color: green;
 }
-
 #category{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: rgba(189, 189, 189, 0.24) 0px 3px 8px;
+    padding-bottom: 15px;
 }
 #category .category_wrapper{
     display: flex;
@@ -29,7 +38,7 @@
     font-family: 'karla';
     font-size: 16px;
     color: rgb(64, 64, 64);
-    margin: 20px 15px 10px 10px;
+    margin: 20px 15px 15px 10px;
     text-decoration: none;
 }
 
@@ -37,7 +46,7 @@
 /* ##################################   Home   ###############################################  */
 
 #home{
-    padding: 40px 6vw;
+    padding: 100px 6vw;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -86,7 +95,7 @@
     box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px;
     cursor: pointer;
 }
-#post img:hover{
+#post:hover img{
     transform: scale(1.03, 1.03);
 }
 #post h3{
@@ -106,7 +115,10 @@
 }
 #post h6{
     font-weight: 600;
-    color: rgb(81, 81, 81);
+    color: rgb(77, 86, 102);
+    background-color: rgb(210, 226, 241);
+    padding: 5px 10px;
+    border-radius: 30px;
 }
 #post #author{
     display: flex;

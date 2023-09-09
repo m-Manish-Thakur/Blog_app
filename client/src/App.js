@@ -2,6 +2,8 @@ import React,{useState, useEffect} from 'react';
 import Navbar from './Componets/Navbar';
 import Home from './Pages/Home';
 import AddPost from './Pages/addPost';
+import AllBlogs from './Pages/AllBlogs';
+import SinglePost from './Pages/SinglePost';
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import axios from 'axios';
  
@@ -25,8 +27,11 @@ const App = () => {
       <BrowserRouter>
       <Navbar/>
       <Routes>
-          <Route index element={<Home data={Posts}/>} />
+          <Route index element={<Home data={Posts} />} />
+          <Route path='/allBlogs' element={<AllBlogs data={Posts} />} />
+          <Route path='/singlePost/:postId' element={<SinglePost data={Posts} />} />
           <Route path='/addPost' element={<AddPost/>} />
+
 
       </Routes>
     </BrowserRouter>

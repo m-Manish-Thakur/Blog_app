@@ -1,0 +1,82 @@
+#addPost{
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 100px 0vw;
+}
+#addPost #title{
+    padding: 10px;
+    font-size: 30px;
+    border: none;
+    border-bottom: 2px solid rgb(141, 141, 141);
+    border-radius: 0;
+}
+#addPost #desc{
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-bottom: 2px solid rgb(141, 141, 141);
+    border-radius: 0;
+}
+#addPost button{
+    border-radius: 30px;
+    padding: 10px 25px;
+    letter-spacing: 0.3px;
+    float: right;
+}
+#addPost label{
+    background-color: royalblue;
+    border-radius: 15px;
+    padding: 10px 20px;
+    color: aliceblue;
+    cursor: pointer;
+}
+#addPost label i{
+    margin-right: 5px;
+}
+#addPost select{
+    padding: 10px 15px;
+    color: rgb(81, 81, 81);
+}
+
+
+/* #########################  All Blogs  ######################### */
+#category{
+    background-color: rgb(255, 255, 255);
+}
+
+#allBlogs{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0px 5vw;
+}
+
+
+/* #########################  Single Post  ###################### */
+
+#singlePost{
+    padding: 100px 7vw;
+    display: flex;align-items: center;
+    justify-content: center; 
+}
+#singlePost div{
+    width: 50vw;
+}
+#singlePost img{
+    width: 50vw;
+}
+#singlePost h1{
+    font-size: 30px;
+    font-family: 'montserrat';
+    font-weight: 700;
+    margin-top: 10px;
+    line-height: 45px;
+}
+#singlePost #desc{
+    font-size: 18px;
+    letter-spacing: 0.3px;
+    line-height: 30px;
+    color: rgb(35, 47, 55);
+    margin-top: 20px;
+}
