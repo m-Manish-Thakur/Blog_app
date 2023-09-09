@@ -1,5 +1,5 @@
 import React from 'react'
-import Post from './Post'
+import Post from '../Componets/Post'
 
 
 const Home = ({data}) => {
@@ -35,9 +35,13 @@ const Home = ({data}) => {
             {
                 data.map((item)=>(
                     <> 
-                        {/* <h1>{item.title}</h1>
-                        <p>{item.desc}</p>
-                        <h4>{item.category}</h4> */}
+                        <Post 
+                            title={"Master CSS: Learn what matters"}
+                            desc={"CSS is an essential part of Web Devlopment, and you should strive to master it. Learn about the different CSS properties and how they affect the layout and appearance of web pages. You should also learn about CSS frameworks like Bootstrap, which can help you design responsive and attractive web pages.Mastering CSS requires a combination of foundational knowledge, consistent practice, and an understanding of web design principles. Here are some tips to help you master CSS:"}
+                            img={`http://localhost:8000/${item.coverImg}`}
+                            author={'Vinay Sharma'}
+                            read={'5'}
+                        />
                         <img src={`http://localhost:8000/${item.coverImg}`} /> 
                     </>
                 ))  

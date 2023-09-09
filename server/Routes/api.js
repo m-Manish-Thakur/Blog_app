@@ -16,14 +16,15 @@ const storage = multer.diskStorage({
   
 
 // Create a new post 
-router.post('/addPost', upload.single('file'), async (req, res) => {
+router.post('/addPost', upload.single('coverImg'), async (req, res) => {
     try{  
         const { title, desc, category } = req.body;
         const imagePath = req.file ? req.file.path : '';
         console.log(imagePath);
+        console.log(req.file);
 
         const newPost = await PostApi.create({
-            title, 
+            title,  
             coverImg: imagePath,
             desc,
             category

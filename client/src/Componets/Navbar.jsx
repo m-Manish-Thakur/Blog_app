@@ -1,5 +1,7 @@
 import React from 'react'
 import './style.css'
+import { Link } from 'react-router-dom'
+
 const Navbar = () => {
   return (
     <div>
@@ -18,7 +20,7 @@ const Navbar = () => {
                       <a class="nav-link" href="#">Explore Blogs</a>
                     </li>
                     <li class="nav-item mx-2">
-                      <a class="nav-link" href="#">Our Story</a>
+                      <Link to='/addPost'><a class="nav-link" href="#">Add Blog</a></Link>
                     </li>
                     <li class="nav-item dropdown  mx-2">
                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,17 +39,6 @@ const Navbar = () => {
                 </div>
               </div>
             </nav>
-
-            <div id="category" className='sticky-top'>
-                <div className='category_wrapper'>
-                    <a href="#" style={{fontWeight:'600'}}>All Blogs</a>
-                    <a href="#">News</a>
-                    <a href="#">Web Developmet</a>
-                    <a href="#">React</a>
-                    <a href="#">Frontend</a>
-                    <a href="#">Software Engineering</a>
-                </div>
-            </div>
     </div>
   )
 }
