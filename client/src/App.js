@@ -1,12 +1,19 @@
 import React,{useState, useEffect} from 'react';
-import Navbar from './Componets/Navbar';
-import Home from './Pages/Home';
-import AddPost from './Pages/addPost';
-import AllBlogs from './Pages/AllBlogs';
-import SinglePost from './Pages/SinglePost';
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import axios from 'axios';
- 
+import Navbar from './Componets/Navbar';
+import Home from './Pages/Home';
+import Footer from './Componets/Footer';
+
+// Blogs
+import AddBlog from './Pages/Addblog';
+import Blogs from './Pages/Blogs';
+import SinglePost from './Pages/SinglePost';
+
+// User
+import Register from './Pages/Register';
+import Login from './Pages/Login';
+
 const App = () => {
   const [Posts, setPosts] = useState([]);
 
@@ -28,12 +35,15 @@ const App = () => {
       <Navbar/>
       <Routes>
           <Route index element={<Home data={Posts} />} />
-          <Route path='/allBlogs' element={<AllBlogs data={Posts} />} />
-          <Route path='/singlePost/:postId' element={<SinglePost data={Posts} />} />
-          <Route path='/addPost' element={<AddPost/>} />
+          <Route path='/blogs' element={<Blogs data={Posts} />} />
+          <Route path='/blogs/:postId' element={<SinglePost data={Posts} />} />
+          <Route path='blogs/addBlog' element={<AddBlog/>} />
+          <Route path='/user/register' element={<Register/>} />
+          <Route path='/user/login' element={<Login />} />
 
 
       </Routes>
+      <Footer/>
     </BrowserRouter>
     </>
   )

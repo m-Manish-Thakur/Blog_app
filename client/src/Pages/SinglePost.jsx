@@ -13,7 +13,7 @@ const SinglePost = ({data}) => {
     }, [pathname]);
 
     const { postId } = useParams();
-    const post = data.find((p) => p._id === postId);
+    const post = data.find((p) => p.title === postId);
 
     console.log(post);
 

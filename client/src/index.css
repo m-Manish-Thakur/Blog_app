@@ -5,3 +5,7 @@
 body{
   overflow-x: hidden;
 }
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}

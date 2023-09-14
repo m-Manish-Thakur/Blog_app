@@ -1,3 +1,100 @@
+#home{
+    padding: 100px 5vw 20px 5vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    /* background: linear-gradient(to top left, rgb(218, 231, 236), rgb(255, 255, 255)); */
+    background: url('https://tailwindcss.com/_next/static/media/docs@tinypng.d9e4dcdc.png');
+    background-size: cover;
+    background-position: center;
+}
+#home .container{
+    width: 50vw;
+}
+#home .container h1{
+    font-family: 'poppins';
+    font-weight: 900;
+    line-height: 65px;
+    font-size: 50px;
+    color: rgb(28, 46, 76);
+    margin-top: 00px;
+    letter-spacing: 1.5px;
+}
+#home .container p{
+    font-size: 17px;
+    color: rgb(81, 81, 81);
+    letter-spacing: 0.3px;
+    margin-top: 25px;
+}
+#home .container button{
+    font-size: 17px;
+    border-radius: 7px;
+    letter-spacing: 0.3px;
+    background-color: rgb(28, 46, 76);
+    color: aliceblue;
+    border: 1px solid rgb(28, 46, 76);
+    margin-top: 20px;
+    padding: 12px 25px;
+}
+#home .container .about{
+    border: 2px solid rgb(28, 46, 76);
+    background-color: transparent;
+    color: rgb(28, 46, 76);
+    margin-left: 30px;
+    font-weight: 600;
+}
+#btn{
+    font-size: 17px;
+    border-radius: 7px;
+    letter-spacing: 0.3px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(28, 46, 76);
+    border: 2px solid rgb(28, 46, 76);
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-weight: 600;
+    margin-left: 44vw;
+    margin-top: 0;
+    margin-bottom: 100px;
+}
+#home .container h4{
+    font-size: 17px;
+    font-family: 'poppins';
+    font-style: italic;
+    font-weight: 600;
+    color: rgb(70, 70, 70);
+    margin-top: 60px;
+}
+ #home .container span{
+    font-style: normal;
+    padding: 7px 14px;
+    background-color: rgb(220, 234, 247);
+    border-radius: 5px;
+    color: royalblue;
+    font-family: 'roboto';
+    font-weight: 500;
+    margin-left: 15px;
+    background: rgba(143, 183, 218, 0.15);
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
+    border-radius: 10px;
+    border: 1px solid rgba(152, 172, 180, 0.386);
+    
+ }
+#home img{
+   width: 40vw;
+}
+#latest{
+    font-family: 'poppins';
+    font-weight: 700;
+    color: rgb(28, 46, 76);
+    text-align: center;
+}
+
+
+
+/* ######################    ADD POST    ######################### */
+
 #addPost{
     width: 700px;
     margin: 0 auto;
@@ -41,15 +138,12 @@
 
 
 /* #########################  All Blogs  ######################### */
-#category{
-    background-color: rgb(255, 255, 255);
-}
 
 #allBlogs{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 0px 5vw;
+    padding: 50px 5vw;
 }
 
 
@@ -79,4 +173,161 @@
     line-height: 30px;
     color: rgb(35, 47, 55);
     margin-top: 20px;
+}
+
+
+/* ######################  Category   ############################ */
+
+#category{
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur( 15.5px );
+    -webkit-backdrop-filter: blur( 15.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+#category{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(189, 189, 189, 0.24) 0px 3px 8px;
+    padding: 20px 0;
+}
+#category .category_wrapper{
+    display: flex;
+    justify-content: center;
+}
+#category a{
+    /* font-family: ''; */
+    font-size: 16px;
+    color: rgb(35, 47, 55);
+    padding: 6px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    border: none;
+}
+#category .active-link {
+    font-size: 16px;
+    border-radius: 30px;
+    background: rgba( 255, 255, 255, 0.15 );
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    outline: none;
+}
+
+
+/* #####################    FOOTER    ########################### */
+
+#footer{
+    width: 100vw;
+    padding: 100px 3vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: rgb(28, 46, 76);
+    row-gap: 50px;
+}
+#footer .item{
+    width: 200px;
+    display: flex;
+    flex-direction: column;   
+}
+#footer .item h2{
+    font-size: 23px;
+    font-family: 'poppins';
+    color: rgb(172, 200, 224);
+}
+#footer .item a{
+    margin-top: 15px;
+    color: rgb(115, 139, 161);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+}   
+
+#footer .item h3{
+    font-size: 23px;
+    font-family: 'poppins';
+    color: rgb(215, 232, 247);
+    font-weight: 700;
+}
+#footer .item i{
+    color: rgb(215, 232, 247);
+    border: 1px solid rgb(215, 232, 247);
+    border-radius: 50%;
+    font-size: 17px;
+    padding-top: 11px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    margin: 20px 5px;
+    cursor: pointer;
+}
+#footer .item i:hover{
+    background-color: rgb(215, 232, 247);
+    color: rgb(28, 46, 76);
+}
+#footer .item p{
+    margin-top: 15px;
+    color: rgb(115, 139, 161);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}   
+
+
+/* ##########################   Forms   ##################################*/
+
+#form{
+    padding: 130px 5vw;
+}
+#form h1{
+    font-size: 25px;
+    letter-spacing: 0.3px;
+    font-weight: 700;
+    color: rgb(35, 47, 55);
+    text-align: center;
+}
+#form form{
+    margin: 40px auto;
+    width: 400px;
+}
+#form label{
+    font-family: 'poppins';
+    display: block;
+    font-weight: 600;
+    color: #6a6a6a;
+    margin-top: 30px;
+}
+#form input{
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px 15px; 
+    border-radius: 7px;
+    font-size: 17px;
+    border: 1px solid rgb(172, 172, 172);
+    outline: none;
+}
+#form button{
+    width: 100%;
+    margin-top: 30px;
+    padding: 15px 15px; 
+    border-radius: 7px;
+    font-size: 17px;
+    border: 1px solid rgb(35, 47, 55);
+    outline: none;
+    background: rgb(35, 47, 55);
+    color: aliceblue;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+#form p{
+    margin-top: 20px;
+    color: rgb(35, 47, 55);
+}
+#form span{
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: underline;
+    cursor: pointer;
 }

@@ -1,80 +1,28 @@
 #navbar{
-    /* box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px; */
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    /* background-color: antiquewhite; */
+    background: rgba( 255, 255, 255, 0.2 );
+    backdrop-filter: blur( 15.5px );
+    -webkit-backdrop-filter: blur( 15.5px );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     position: fixed;
     top: 0;
-    background-color: white;
     width: 100vw;
     z-index: 10;
     padding: 5px 5vw;
 }
 #navbar img{
     height: 60px;
+    mix-blend-mode: multiply;
 }
 #navbar a{
-    color: rgb(105, 105, 105);
+    color: rgb(37, 56, 66);
     text-decoration: none;
 }
 #navbar button{
     padding: 7px 20px;
-    border-radius: 30px;
-    background-color: green;
-}
-#category{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: rgba(189, 189, 189, 0.24) 0px 3px 8px;
-    padding-bottom: 15px;
-}
-#category .category_wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid rgb(203, 203, 203);
-}
-#category a{
-    font-family: 'karla';
-    font-size: 16px;
-    color: rgb(64, 64, 64);
-    margin: 20px 15px 15px 10px;
-    text-decoration: none;
-}
-
-
-/* ##################################   Home   ###############################################  */
-
-#home{
-    padding: 100px 6vw;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-#home #hero1{
-    width: 55vw;
-}
-#home #hero1 img{
-    width: 100%;
     border-radius: 10px;
+    border: none;
+    background: rgb(37, 56, 66);
 }
-#home #hero1 .content{
-    padding: 10px 20px;
-}
-#home #hero1 h1{
-    font-family: 'poppins';
-    font-weight: 700;
-    font-size: 35px;
-}
-#home #hero1 p{
-    font-size: 17px;
-    color: rgb(78, 78, 78);
-}
-#home #user{
-    display: flex;
-}
-
-
 
 
 /* #####################   POST  ######################### */

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Post = ({title, desc, img, author, read, id, category}) => {
 
   return (
-    <Link to={`/singlePost/${id}`} style={{textDecoration:'none', color:'rgb(30, 20, 50)'}}>
+    <Link to={`/blogs/${title}`} style={{textDecoration:'none', color:'rgb(30, 20, 50)'}}>
       <div id='post'>
               <img src={img} alt="" />
               <h3>{title}</h3>
@@ -14,7 +14,7 @@ const Post = ({title, desc, img, author, read, id, category}) => {
                   <h6>{category}</h6>
                   <h5>
                       <img src="Images/book.jpg" style={{width:'24px', marginRight:'7px'}}/>
-                      {read} min read
+                      {Math.round((desc.length)/250)} min read
                   </h5>
               </div>
       </div>
