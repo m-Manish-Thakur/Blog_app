@@ -1,15 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import UserContext from '../Contexts/UserContext'
 import axios from 'axios'
 import './style.css'
 
 
 const AddBlog = () => {
+  
+  const { user } = useContext(UserContext);
 
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [category, setCate] = useState("");
   const [coverImg, setCoverImg] = useState('');
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +21,8 @@ const AddBlog = () => {
       postData.append("desc", desc);
       postData.append("category", category);
       postData.append("coverImg", coverImg);
+      postData.append("author", user._id);
+      postData.append("username", user.username);
 
       console.log(postData);
      
@@ -33,7 +37,7 @@ const AddBlog = () => {
         },
       });
       
-      window.location.replace("/singlePost/"+  res.data._id);
+      window.location.replace("/blogs/"+  res.data.title);
       // console.log(res.data);
     }
 
@@ -52,7 +56,7 @@ const AddBlog = () => {
                           name="desc" 
                           onChange={e=>setDesc(e.target.value)} required></textarea>
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            <div class="mb-3 d-flex justify-content-between" id='fileInput'>
                 <label class="form-label" htmlFor='uploadBtn'><i class="fa-solid fa-cloud-arrow-up"></i> Upload Cover Image</label>
                 <input type="file" id='uploadBtn' placeholder="Cover Image" 
                       name="coverImg" onChange={(e) => setCoverImg(e.target.files[0])}/>

@@ -1,46 +1,188 @@
-import React from 'react'
-import './style.css'
-import { Link } from 'react-router-dom'
-
+import React, { useState, useContext } from "react";
+import "./style.css";
+import { Link } from "react-router-dom";
+import UserContext from "../Contexts/UserContext";
 const Navbar = () => {
-  return (
-    <div>
-            <nav class="navbar navbar-expand-lg  px-5" id='navbar'>
-              <div class="container-fluid">
-                  <img src="Images/logo2.png" class='navbar-brand' alt="" />
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0" style={{marginLeft:'5vw'}}>
-                    <li class="nav-item mx-2">
-                      <Link to='/'><a class="nav-link active" aria-current="page" href="#">Home</a></Link>
-                    </li>
-                    <li class="nav-item mx-2">
-                      <Link to='/blogs'><a class="nav-link" href="#">Explore Blogs</a></Link>
-                    </li>
-                    <li class="nav-item mx-2">
-                      <Link to='blogs/addBlog'><a class="nav-link" href="#">Add Blog</a></Link>
-                    </li>
-                    <li class="nav-item dropdown  mx-2">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Account
-                      </a>
-                      <ul class="dropdown-menu">
-                        <Link to='/user/login'><li><a class="dropdown-item" href="#">Login</a></li></Link>
-                        <Link to='/user/register'><li><a class="dropdown-item" href="#">Create Account</a></li></Link>
-                      </ul>
-                    </li>
-                  </ul>
-                  <div class="d-flex align-items-center" role="search">
-                        <Link to='/user/login'><a href="#" className='mx-4'>Login</a></Link>
-                        <Link to='/user/register'><button type="button" class="btn btn-success">Get Started</button></Link>
-                  </div>
-                </div>
-              </div>
-            </nav>
-    </div>
-  )
-}
+  const { user, setUser, token, setToken } = useContext(UserContext);
 
-export default Navbar
+  // console.log(user);
+
+  return (
+    <>
+      <div>
+        <nav id="navbar">
+          <Link to="/">
+            <img src="Images/logo2.png" />
+          </Link>
+
+          <div className="navLinks">
+            <Link to="/">
+              <a class="nav-link active" aria-current="page" href="#">
+                Home
+              </a>
+            </Link>
+            <Link to="/blogs">
+              <a class="nav-link" href="#">
+                Explore Blogs
+              </a>
+            </Link>
+            <Link to="/blogs">
+              <a class="nav-link" href="#">
+                About Us
+              </a>
+            </Link>
+
+            {user ? (
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <Link to="blogs/addBlog">
+                  <a class="nav-link" href="#">
+                    <i
+                      class="fa-regular fa-pen-to-square"
+                      style={{
+                        paddingRight: "10px",
+                        fontSize: "17px",
+                        color: "royalblue",
+                      }}
+                    ></i>
+                    Write
+                  </a>
+                </Link>
+                <Link to="/user/profile">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
+                    style={{ height: "35px" }}
+                  />
+                </Link>
+              </div>
+            ) : (
+              <div>
+                <Link to="/user/login">
+                  <a href="#" className="mx-4">
+                    Login
+                  </a>
+                </Link>
+                <Link to="/user/register">
+                  <button type="button" class="btn btn-success">
+                    Get Started
+                  </button>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* #####################  RESPONSIVE   ############################### */}
+
+          <i
+            className="fa-solid fa-bars"
+            id="buttonToggle"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions"
+            aria-controls="offcanvasWithBothOptions"
+          ></i>
+
+          <div
+            class="offcanvas offcanvas-start"
+            data-bs-scroll="true"
+            tabindex="-1"
+            id="offcanvasWithBothOptions"
+            aria-labelledby="offcanvasWithBothOptionsLabel"
+          >
+            <div class="offcanvas-header justify-content-end">
+              <i
+                class="fa-solid fa-xmark"
+                style={{ float: "right", fontSize: "30px" }}
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></i>
+            </div>
+
+            <div class="offcanvas-body" id="offcanvasBody">
+              <Link to="/">
+                <a class="nav-link active" aria-current="page" href="#">
+                  <span data-bs-dismiss="offcanvas" aria-label="Close">
+                    Home
+                  </span>
+                </a>
+              </Link>
+              <Link to="/blogs">
+                <a class="nav-link" href="#">
+                  <span data-bs-dismiss="offcanvas" aria-label="Close">
+                    Explore Blogs
+                  </span>
+                </a>
+              </Link>
+              <Link to="/blogs">
+                <a class="nav-link" href="#">
+                  <span data-bs-dismiss="offcanvas" aria-label="Close">
+                    About
+                  </span>
+                </a>
+              </Link>
+
+              {user ? (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    rowGap: "20px",
+                  }}
+                >
+                  <Link to="blogs/addBlog">
+                    <a class="nav-link" href="#">
+                      <i
+                        class="fa-regular fa-pen-to-square"
+                        style={{
+                          paddingRight: "10px",
+                          fontSize: "17px",
+                          color: "royalblue",
+                        }}
+                      ></i>
+                      <span data-bs-dismiss="offcanvas" aria-label="Close">
+                        Write
+                      </span>
+                    </a>
+                  </Link>
+                  <Link to="/user/profile">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
+                      style={{ height: "35px", marginRight: "5px" }}
+                    />
+                    <span data-bs-dismiss="offcanvas" aria-label="Close">
+                      {" "}
+                      Account
+                    </span>
+                  </Link>
+                </div>
+              ) : (
+                <div>
+                  <Link to="/user/login">
+                    <a
+                      href="#"
+                      className="mx-4"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    >
+                      Login
+                    </a>
+                  </Link>
+                  <Link to="/user/register">
+                    <button
+                      type="button"
+                      class="btn btn-success mt-4"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    >
+                      Get Started
+                    </button>
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        </nav>
+      </div>
+    </>
+  );
+};
+
+export default Navbar;

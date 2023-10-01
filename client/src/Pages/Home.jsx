@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, {useContext} from 'react'
 import Post from '../Componets/Post';
-import Blogs from './Blogs'
-
+import UserContext from '../Contexts/UserContext'
+import { Link } from 'react-router-dom';
 const Home = ({data}) => {
 
-  // const [Data, setData] = useState(data);
+    const { user } = useContext(UserContext);
 
   return (
     <>
@@ -12,14 +12,23 @@ const Home = ({data}) => {
             <div className="container">
                 <h1>Welcome! to Blogify<br /> Read the most <br /> interesting Blogs!</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                <button>Explore Our Blogs</button>
-                <button className='about'>About Us</button>
+                <Link to='/blogs'>
+                    <button>Explore Our Blogs</button>
+                </Link>
+                {
+                    user?(
+                        <Link to='/blogs/addBlog'><button className='about'> <i class="fa-regular fa-pen-to-square" style={{paddingRight:'8px', fontSize:'17px', color: 'rgb(28, 46, 76)'}}></i> Write</button></Link>
+                    ):(
+                        <Link  to='/user/register'><button className='about'>Get Started</button></Link>
+                    )
+                }
+                
                 <h4>Popular Categories: <span>Sports</span> <span>Lifestyle</span> <span>Food</span> <span>Photography</span></h4>
             </div>
             <img src="https://www.daswritingservices.com/wp-content/uploads/2021/01/blog-banner-image.svg"  />
         </div>
         <h1 id='latest'>Latest Blogs</h1>
-        <div id='allBlogs'>
+        <div id='latestBlogs'>
                 {
                     data ?
                         data.slice(0, 3).map((item) => (

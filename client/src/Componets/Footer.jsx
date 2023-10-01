@@ -2,7 +2,21 @@ import React from 'react'
 
 const Footer = () => {
   return (
+
     <div id='footer'>   
+    <p style={{color:'aliceblue', textAlign:'center'}}>Made with ❤️ By Manish Thakur</p>
+    <div className='d-flex gap-3 justify-content-center mt-4' style={{width:'100%'}}>
+        <a href="https://www.linkedin.com/in/manish-thakur-%F0%9F%87%AE%F0%9F%87%B3-9a6877235/">
+            <button type="button" class="btn btn-primary">LinkedIn</button>
+        </a>
+        <a href="https://github.com/m-Manish-Thakur">
+            <button type="button" class="btn btn-success">GitHub</button>
+        </a>
+        <a href="https://manish-thakur-portfolio.netlify.app/">
+            <button type="button" class="btn btn-danger">Portfolio</button>
+        </a>
+    </div>
+    <div id='footerContainer'>
         <div className="item">
             <h3>Blogify</h3>
             <div style={{display:'flex', alignItems:'center'}}>
@@ -43,6 +57,7 @@ const Footer = () => {
             <a href="#">Changelog</a>
         </div>
     </div>
+</div>
   )
 }
 
