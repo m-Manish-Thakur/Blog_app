@@ -4,6 +4,7 @@ import UserContext from "../Contexts/UserContext";
 import axios from "axios";
 
 const SinglePost = () => {
+  
   const { user } = useContext(UserContext);
   const { postId } = useParams();
   const [post, setPost] = useState(null);

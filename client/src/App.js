@@ -6,6 +6,9 @@ import Home from './Pages/Home';
 import Footer from './Componets/Footer';
 import Profile from './Pages/Profile';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Blogs
 import AddBlog from './Pages/Addblog';
 import Blogs from './Pages/Blogs';
@@ -54,6 +57,7 @@ const App = () => {
           <Route path='/user/login' element={<Login />} />
       </Routes>
       <Footer/>
+      <ToastContainer />
     </BrowserRouter>
     </>
   )

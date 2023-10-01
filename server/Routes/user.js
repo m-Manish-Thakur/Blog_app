@@ -26,7 +26,7 @@ router.post("/register", async (req, res) => {
       console.log(user);
       res.status(201).json(user);
     } else {
-      res.status(400).send("User already exists");
+      return res.status(400).json({ error: 'User already exists' });
     }
   } catch (err) {
     console.log(err);
@@ -44,8 +44,7 @@ router.post("/login", async (req, res) => {
     let user = await User.findOne({ email: req.body.email });
 
     if (!user) {
-      res.status(400).send("Email is not exists");
-      console.log("Email is not exists");
+      return res.status(400).json({ error: 'Email is not exists' });
     }
 
     // Checking if password is match
@@ -56,8 +55,7 @@ router.post("/login", async (req, res) => {
     );
 
     if (!validPassword) {
-      res.status(400).send("Email or password is wrong");
-      console.log("Email or password is wrong");
+      return res.status(400).json({ error: 'Email or Password is wrong' });
     }
 
     // Generate JWT Token

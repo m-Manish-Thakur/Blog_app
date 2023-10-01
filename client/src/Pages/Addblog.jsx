@@ -37,8 +37,8 @@ const AddBlog = () => {
         },
       });
       
-      window.location.replace("/blogs/"+  res.data.title);
-      // console.log(res.data);
+      window.location.replace("/blogs/"+  res.data._id);
+
     }
 
 

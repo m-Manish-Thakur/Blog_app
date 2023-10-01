@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../Contexts/UserContext";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import axios, { toFormData } from "axios";
+import { useNavigate, Link } from "react-router-dom";
 import UpdatePost from "../Componets/UpdatePost";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -63,6 +66,7 @@ const Profile = () => {
 
     // Remove the user from local storage
     localStorage.removeItem("user");
+    toast.success('Logout Successfully');
     setToken("");
     setUser(null);
     navigate("/");
@@ -93,7 +97,9 @@ const Profile = () => {
                 Posts.map((item) => (
                   <>
                     <div id="userPosts" key={item._id}>
+                  <Link to={`/blogs/${item._id}`} style={{textDecoration:'none', color:'rgb(30, 20, 50)'}}>
                       <img src={`http://localhost:8000/${item.coverImg}`} />
+                  </Link>
                       <h4>{item.title.substring(0, 45)}...</h4>
                       <div className="d-flex justify-content-around mt-4">
                         <button
