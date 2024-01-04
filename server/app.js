@@ -7,7 +7,19 @@ const likeComments = require("./Routes/like-comments");
 const userRoute = require("./Routes/user");
 const cors = require("cors");
 
-app.use(cors());
+const allowedOrigins = ["http://localhost:3000"];
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,13 +35,10 @@ app.use("/user", userRoute);
 
 //  Port and MongoDB Connection
 
-app.listen(8000, () => {
+app.listen(8800, () => {
   console.log("Server Started");
   mongoose
-    .connect("mongodb://localhost:27017/blogify_DB", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+    .connect("mongodb+srv://manishthakur231690:BlogApp231690@cluster0.j8m2kuw.mongodb.net/?retryWrites=true&w=majority")
     .then(() => {
       console.log("Database Connected");
     })

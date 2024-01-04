@@ -3,9 +3,8 @@ import UserContext from "../Contexts/UserContext";
 import axios, { toFormData } from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import UpdatePost from "../Componets/UpdatePost";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ const Profile = () => {
     if (user) {
       // Fetch data from the backend API Dat
       axios
-        .get(`http://localhost:8000/api/${user._id}/blogs`)
+        .get(`http://localhost:8800/api/${user._id}/blogs`)
         .then((response) => {
           setPosts(response.data);
           console.log(Posts);
@@ -38,7 +37,7 @@ const Profile = () => {
   const handleDelete = (postId) => {
     try {
       console.log("called");
-      axios.delete(`http://localhost:8000/api/${postId}`, {
+      axios.delete(`http://localhost:8800/api/${postId}`, {
         data: { username: user.username },
       });
       window.location.replace("/user/profile");
@@ -47,16 +46,15 @@ const Profile = () => {
     }
   };
 
-
   //  ###################    Update Post   ##############################
 
-    const handleEdit = () => {
-        setIsUpdate(true)
-    }
+  const handleEdit = () => {
+    setIsUpdate(true);
+  };
 
-    const handleCloseUpdate = () => {
-      setIsUpdate(false); // Hide the UpdatePost component   
-    };
+  const handleCloseUpdate = () => {
+    setIsUpdate(false); // Hide the UpdatePost component
+  };
 
   // ####################    LOGOUT   ##########################
 
@@ -66,24 +64,18 @@ const Profile = () => {
 
     // Remove the user from local storage
     localStorage.removeItem("user");
-    toast.success('Logout Successfully');
+    toast.success("Logout Successfully");
     setToken("");
     setUser(null);
     navigate("/");
   };
-
-
 
   return (
     <>
       <div id="profileHeading">
         <h1>My Profile</h1>
         <button onClick={logout} type="button" class="btn btn-danger">
-          Logout{" "}
-          <i
-            class="fa-solid fa-arrow-right-from-bracket"
-            style={{ marginLeft: "5px" }}
-          ></i>
+          Logout <i class="fa-solid fa-arrow-right-from-bracket" style={{ marginLeft: "5px" }}></i>
         </button>
       </div>
 
@@ -97,23 +89,15 @@ const Profile = () => {
                 Posts.map((item) => (
                   <>
                     <div id="userPosts" key={item._id}>
-                  <Link to={`/blogs/${item._id}`} style={{textDecoration:'none', color:'rgb(30, 20, 50)'}}>
-                      <img src={`http://localhost:8000/${item.coverImg}`} />
-                  </Link>
+                      <Link to={`/blogs/${item._id}`} style={{ textDecoration: "none", color: "rgb(30, 20, 50)" }}>
+                        <img src={`http://localhost:8800/${item.coverImg}`} />
+                      </Link>
                       <h4>{item.title.substring(0, 45)}...</h4>
                       <div className="d-flex justify-content-around mt-4">
-                        <button
-                          onClick={() => handleEdit()} 
-                          type="button"
-                          class="btn btn-primary"
-                        >
+                        <button onClick={() => handleEdit()} type="button" class="btn btn-primary">
                           <i class="fa-solid fa-pen"></i> Edit
                         </button>
-                        <button
-                          onClick={() => handleDelete(item._id)}
-                          type="button"
-                          class="btn btn-outline-danger"
-                        >
+                        <button onClick={() => handleDelete(item._id)} type="button" class="btn btn-outline-danger">
                           <i class="fa-solid fa-trash-can"></i> Delete
                         </button>
                       </div>
@@ -148,8 +132,8 @@ const Profile = () => {
               <h2>{user.username}</h2>
               <p className="role">MERN Stack Developer | Designer</p>
               <p className="desc">
-                Work on back-end & front-end development of core scripts using
-                NodeJS/ MongoDB/React. js/Angular/Express /Redux.
+                Work on back-end & front-end development of core scripts using NodeJS/ MongoDB/React. js/Angular/Express
+                /Redux.
               </p>
               <div className="d-flex justify-content-evenly">
                 <h3>

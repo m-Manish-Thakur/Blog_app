@@ -4,22 +4,22 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const UpdatePost = ({ title, desc, postId, onClose }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const { user } = useContext(UserContext);
-    const [postTitle, setTitle] = useState(title);
-    const [postDesc, setDesc] = useState(desc);
+  const { user } = useContext(UserContext);
+  const [postTitle, setTitle] = useState(title);
+  const [postDesc, setDesc] = useState(desc);
 
   // ######################  UPDATE POST  ###################################
 
   const handleUpdate = async (postId) => {
     try {
-        const response = await axios.put(`http://localhost:8000/api/${postId}`, {
+      const response = await axios.put(`http://localhost:8800/api/${postId}`, {
         title: postTitle,
         desc: postDesc,
-        });
+      });
 
-        onClose(); 
+      onClose();
     } catch (err) {
       console.log(err);
     }
@@ -36,16 +36,12 @@ const UpdatePost = ({ title, desc, postId, onClose }) => {
             </div>
             <br />
             <label>Title</label>
-            <input type="text" value={postTitle} autoFocus onChange={(e)=> setTitle(e.target.value)} />
+            <input type="text" value={postTitle} autoFocus onChange={(e) => setTitle(e.target.value)} />
 
             <label>Description</label>
-            <textarea cols="30" rows="10" value={postDesc}  onChange={(e)=> setDesc(e.target.value)} ></textarea>
+            <textarea cols="30" rows="10" value={postDesc} onChange={(e) => setDesc(e.target.value)}></textarea>
 
-            <button
-              type="submit"
-              className="btn btn-primary mt-3"
-              style={{ float: "right" }}
-            >
+            <button type="submit" className="btn btn-primary mt-3" style={{ float: "right" }}>
               Update Post
             </button>
           </div>
@@ -53,7 +49,6 @@ const UpdatePost = ({ title, desc, postId, onClose }) => {
       </div>
     </>
   );
-
 };
 
 export default UpdatePost;

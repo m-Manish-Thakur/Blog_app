@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../Models/user");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 // Add this line to parse JSON data
@@ -26,7 +26,7 @@ router.post("/register", async (req, res) => {
       console.log(user);
       res.status(201).json(user);
     } else {
-      return res.status(400).json({ error: 'User already exists' });
+      return res.status(400).json({ error: "User already exists" });
     }
   } catch (err) {
     console.log(err);
@@ -44,25 +44,19 @@ router.post("/login", async (req, res) => {
     let user = await User.findOne({ email: req.body.email });
 
     if (!user) {
-      return res.status(400).json({ error: 'Email is not exists' });
+      return res.status(400).json({ error: "Email is not exists" });
     }
 
     // Checking if password is match
 
-    const validPassword = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
 
     if (!validPassword) {
-      return res.status(400).json({ error: 'Email or Password is wrong' });
+      return res.status(400).json({ error: "Email or Password is wrong" });
     }
 
     // Generate JWT Token
-    const token = jwt.sign(
-      { _id: user._id, email: user.email },
-      "$uper$ecretKey231690"
-    );
+    const token = jwt.sign({ _id: user._id, email: user.email }, "$uper$ecretKey231690");
     res.json({ token, user });
     console.log({ token });
   } catch (err) {
