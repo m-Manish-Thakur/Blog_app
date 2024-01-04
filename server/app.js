@@ -6,8 +6,10 @@ const postRoute = require("./Routes/post");
 const likeComments = require("./Routes/like-comments");
 const userRoute = require("./Routes/user");
 const cors = require("cors");
+require("dotenv").config();
 
 const allowedOrigins = ["http://localhost:3000"];
+
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -37,8 +39,11 @@ app.use("/user", userRoute);
 
 app.listen(8800, () => {
   console.log("Server Started");
-  mongoose
-    .connect("mongodb+srv://manishthakur231690:BlogApp231690@cluster0.j8m2kuw.mongodb.net/?retryWrites=true&w=majority")
+  mongoose.mongoose
+    .connect(process.env.DATABASE_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
     .then(() => {
       console.log("Database Connected");
     })
