@@ -5,6 +5,7 @@ import UserContext from "../Contexts/UserContext";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SERVER_URL } from "../Constants";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ const Login = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:8800/user/login", formData, {
+      const res = await axios.post(`${SERVER_URL}/user/login`, formData, {
         headers: {
           "Content-Type": "application/json",
         },

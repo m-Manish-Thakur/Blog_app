@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import UserContext from "../Contexts/UserContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../Constants";
 
 const UpdatePost = ({ title, desc, postId, onClose }) => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const UpdatePost = ({ title, desc, postId, onClose }) => {
 
   const handleUpdate = async (postId) => {
     try {
-      const response = await axios.put(`http://localhost:8800/api/${postId}`, {
+      const response = await axios.put(`${SERVER_URL}/api/${postId}`, {
         title: postTitle,
         desc: postDesc,
       });

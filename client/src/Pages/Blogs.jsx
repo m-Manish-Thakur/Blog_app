@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import Post from "../Componets/Post";
+import { SERVER_URL } from "../Constants";
 
 const Blogs = ({ data }) => {
   const [Data, setData] = useState(data);
@@ -28,7 +29,7 @@ const Blogs = ({ data }) => {
               title={item.title}
               desc={item.desc}
               category={item.category}
-              img={`http://localhost:8800/${item.coverImg}`}
+              img={`${SERVER_URL}/${item.coverImg}`}
               read={"5"}
             />
           ))
@@ -43,49 +44,3 @@ const Blogs = ({ data }) => {
 };
 
 export default Blogs;
-
-// <div id="category" className='sticky-top'>
-//                 <div className='category_wrapper'>
-//                     <a href="#"
-//                         onClick={() => setSelectedCategory('All Blogs')}
-//                         className={selectedCategory === 'All Blogs' ? 'active-link' : ''}
-//                     >
-//                         All Blogs
-//                     </a>
-
-//                     <a href="#"
-//                         onClick={() => setSelectedCategory('Health & Fitness')}
-//                         className={selectedCategory === 'Health & Fitness' ? 'active-link' : ''}
-//                     >
-//                         Health & Fitness
-//                     </a>
-
-//                     <a  href="#"
-//                         onClick={() => setSelectedCategory('Food')}
-//                         className={selectedCategory === 'Food' ? 'active-link' : ''}
-//                     >
-//                         Food
-//                     </a>
-
-//                     <a  href="#"
-//                         onClick={() => setSelectedCategory('Lifestyle')}
-//                         className={selectedCategory === 'Lifestyle' ? 'active-link' : ''}
-//                     >
-//                         Lifestyle
-//                     </a>
-
-//                     <a href="#"
-//                         onClick={() => setSelectedCategory('Photography')}
-//                         className={selectedCategory === 'Photography' ? 'active-link' : ''}
-//                     >
-//                         Photography
-//                     </a>
-
-//                     <a href="#"
-//                         onClick={() => setSelectedCategory('Sports')}
-//                         className={selectedCategory === 'Sports' ? 'active-link' : ''}
-//                     >
-//                         Sports
-//                     </a>
-//                 </div>
-//             </div>

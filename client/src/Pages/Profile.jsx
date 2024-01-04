@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import UpdatePost from "../Componets/UpdatePost";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SERVER_URL } from "../Constants";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Profile = () => {
     if (user) {
       // Fetch data from the backend API Dat
       axios
-        .get(`http://localhost:8800/api/${user._id}/blogs`)
+        .get(`${SERVER_URL}/api/${user._id}/blogs`)
         .then((response) => {
           setPosts(response.data);
           console.log(Posts);
@@ -37,7 +38,7 @@ const Profile = () => {
   const handleDelete = (postId) => {
     try {
       console.log("called");
-      axios.delete(`http://localhost:8800/api/${postId}`, {
+      axios.delete(`${SERVER_URL}/api/${postId}`, {
         data: { username: user.username },
       });
       window.location.replace("/user/profile");
@@ -90,7 +91,7 @@ const Profile = () => {
                   <>
                     <div id="userPosts" key={item._id}>
                       <Link to={`/blogs/${item._id}`} style={{ textDecoration: "none", color: "rgb(30, 20, 50)" }}>
-                        <img src={`http://localhost:8800/${item.coverImg}`} />
+                        <img src={`${SERVER_URL}/${item.coverImg}`} />
                       </Link>
                       <h4>{item.title.substring(0, 45)}...</h4>
                       <div className="d-flex justify-content-around mt-4">

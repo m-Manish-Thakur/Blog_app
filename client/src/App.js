@@ -5,6 +5,7 @@ import Navbar from "./Componets/Navbar";
 import Home from "./Pages/Home";
 import Footer from "./Componets/Footer";
 import Profile from "./Pages/Profile";
+import { SERVER_URL } from "./Constants";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -30,7 +31,7 @@ const App = () => {
 
     // Fetch data from the backend API Data
     axios
-      .get("http://localhost:8800/api/allPosts")
+      .get(`${SERVER_URL}/api/allPosts`)
       .then((response) => {
         setPosts(response.data);
         console.log(Posts);

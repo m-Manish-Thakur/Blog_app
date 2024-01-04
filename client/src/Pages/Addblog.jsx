@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import UserContext from "../Contexts/UserContext";
 import axios from "axios";
 import "./style.css";
+import { SERVER_URL } from "../Constants";
 
 const AddBlog = () => {
   const { user } = useContext(UserContext);
@@ -29,7 +30,7 @@ const AddBlog = () => {
       console.log(`${pair[0]}, ${pair[1]}`);
     }
 
-    const res = await axios.post("http://localhost:8800/api/addPost", postData, {
+    const res = await axios.post(`${SERVER_URL}/api/addPost`, postData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

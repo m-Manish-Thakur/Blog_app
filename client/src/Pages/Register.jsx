@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { SERVER_URL } from "../Constants";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -21,7 +21,7 @@ const Register = () => {
     formData.append("password", password);
 
     try {
-      const res = await axios.post("http://localhost:8800/user/register", formData, {
+      const res = await axios.post(`${SERVER_URL}/user/register`, formData, {
         headers: {
           "Content-Type": "application/json",
         },

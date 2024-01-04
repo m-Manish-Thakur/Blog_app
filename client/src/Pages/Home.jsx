@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import Post from "../Componets/Post";
 import UserContext from "../Contexts/UserContext";
 import { Link } from "react-router-dom";
+import { SERVER_URL } from "../Constants";
 
 const Home = ({ data }) => {
   const { user } = useContext(UserContext);
-
+  console.log(SERVER_URL);
   return (
     <>
       <div id="home">
@@ -55,7 +56,7 @@ const Home = ({ data }) => {
                 title={item.title}
                 desc={item.desc}
                 category={item.category}
-                img={`http://localhost:8800/${item.coverImg}`}
+                img={`${SERVER_URL}/${item.coverImg}`}
                 read={"5"}
               />
             ))

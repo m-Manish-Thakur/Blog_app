@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../Contexts/UserContext";
 import axios from "axios";
+import { SERVER_URL } from "../Constants";
 
 const SinglePost = () => {
   const { user } = useContext(UserContext);
@@ -15,7 +16,7 @@ const SinglePost = () => {
   // Get Full Post By ID
   useEffect(() => {
     axios
-      .get(`http://localhost:8800/api/${postId}`)
+      .get(`${SERVER_URL}/api/${postId}`)
       .then((response) => {
         setPost(response.data);
         setLikes(response.data.likes.length);
@@ -44,7 +45,7 @@ const SinglePost = () => {
 
       try {
         if (post) {
-          const response = await axios.post(`http://localhost:8000/api/${post._id}/like`, { userId });
+          const response = await axios.post(`${SERVER_URL}/api/${post._id}/like`, { userId });
           const updatedPost = response.data;
           setLikes(updatedPost.likes.length);
         }
@@ -58,7 +59,7 @@ const SinglePost = () => {
   const handleComment = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:8000/api/${post._id}/comment`, {
+      const response = await axios.post(`${SERVER_URL}/api/${post._id}/comment`, {
         comment: comment,
         author: user.username,
       });
@@ -74,7 +75,7 @@ const SinglePost = () => {
       <div id="singlePost">
         {post ? (
           <div id="container">
-            <img src={`http://localhost:8000/${post.coverImg}`} alt="Post Cover" />
+            <img src={`${SERVER_URL}/${post.coverImg}`} alt="Post Cover" />
             <div className="d-flex justify-content-between align-items-center px-2 py-3">
               <h5>{post.username ? `@${post.username}` : "@John Dev"}</h5>
               <div className="d-flex gap-4 align-items-center">

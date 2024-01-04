@@ -8,7 +8,7 @@ const userRoute = require("./Routes/user");
 const cors = require("cors");
 require("dotenv").config();
 
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = ["https://blog-manish.netlify.app"];
 
 app.use(
   cors({
