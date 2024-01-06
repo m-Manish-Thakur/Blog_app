@@ -8,7 +8,7 @@ const userRoute = require("./Routes/user");
 const cors = require("cors");
 require("dotenv").config();
 
-const allowedOrigins = ["https://blog-manish.netlify.app"];
+const allowedOrigins = ["https://blog-app-five-sigma.vercel.app/"];
 
 app.use(
   cors({
