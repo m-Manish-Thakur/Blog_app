@@ -1,18 +1,25 @@
 const express = require("express");
-const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
+const compression = require("compression");
+const dotenv = require("dotenv");
+
 const postRoute = require("./Routes/post");
 const likeComments = require("./Routes/like-comments");
 const userRoute = require("./Routes/user");
-const cors = require("cors");
-require("dotenv").config();
+
+dotenv.config();
+
+const app = express();
+const port = process.env.PORT || 8800;
 
 const allowedOrigins = ["https://blog-app-five-sigma.vercel.app"];
 
+app.use(compression());
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
@@ -22,7 +29,6 @@ app.use(
     credentials: true,
   })
 );
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
@@ -35,19 +41,15 @@ app.use("/api", postRoute);
 app.use("/api", likeComments);
 app.use("/user", userRoute);
 
-//  Port and MongoDB Connection
-
-app.listen(8800, () => {
-  console.log("Server Started");
-  mongoose.mongoose
-    .connect(process.env.DATABASE_URL, {
+// Port and MongoDB Connection
+app.listen(port, async () => {
+  try {
+    await mongoose.connect(process.env.DATABASE_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    })
-    .then(() => {
-      console.log("Database Connected");
-    })
-    .catch((err) => {
-      console.log(err);
     });
+    console.log("Server started and database connected");
+  } catch (error) {
+    console.error("Error connecting to the database:", error.message);
+  }
 });
