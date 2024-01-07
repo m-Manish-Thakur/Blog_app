@@ -41,7 +41,7 @@ const Profile = () => {
       axios.delete(`${SERVER_URL}/api/${postId}`, {
         data: { username: user.username },
       });
-      window.location.replace("/user/profile");
+      window.location.reload("/user/profile");
     } catch (err) {
       console.log(err);
     }

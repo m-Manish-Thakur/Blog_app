@@ -8,6 +8,8 @@ const dotenv = require("dotenv");
 const postRoute = require("./Routes/post");
 const likeComments = require("./Routes/like-comments");
 const userRoute = require("./Routes/user");
+const NodeCache = require("node-cache");
+const myCache = new NodeCache();
 
 dotenv.config();
 
