@@ -12,7 +12,7 @@ const Navbar = () => {
       <div>
         <nav id="navbar">
           <Link to="/">
-            <img src="Images/logo2.png" />
+            <img src="https://images.saasworthy.com/blogify_43430_logo_1683683755_kfxrm.png" />
           </Link>
 
           <div className="navLinks">
@@ -48,10 +48,7 @@ const Navbar = () => {
                   </a>
                 </Link>
                 <Link to="/user/profile">
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
-                    style={{ height: "35px" }}
-                  />
+                  <img src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png" style={{ height: "35px" }} />
                 </Link>
               </div>
             ) : (
@@ -156,22 +153,12 @@ const Navbar = () => {
               ) : (
                 <div>
                   <Link to="/user/login">
-                    <a
-                      href="#"
-                      className="mx-4"
-                      data-bs-dismiss="offcanvas"
-                      aria-label="Close"
-                    >
+                    <a href="#" className="mx-4" data-bs-dismiss="offcanvas" aria-label="Close">
                       Login
                     </a>
                   </Link>
                   <Link to="/user/register">
-                    <button
-                      type="button"
-                      class="btn btn-success mt-4"
-                      data-bs-dismiss="offcanvas"
-                      aria-label="Close"
-                    >
+                    <button type="button" class="btn btn-success mt-4" data-bs-dismiss="offcanvas" aria-label="Close">
                       Get Started
                     </button>
                   </Link>

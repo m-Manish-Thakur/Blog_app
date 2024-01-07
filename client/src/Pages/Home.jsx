@@ -6,7 +6,7 @@ import { SERVER_URL } from "../Constants";
 
 const Home = ({ data }) => {
   const { user } = useContext(UserContext);
-  console.log(SERVER_URL);
+
   return (
     <>
       <div id="home">
@@ -62,7 +62,7 @@ const Home = ({ data }) => {
             ))
         ) : (
           <div>
-            <h1>Loading...</h1>
+            <h1>No Posts Yet</h1>
           </div>
         )}
       </div>

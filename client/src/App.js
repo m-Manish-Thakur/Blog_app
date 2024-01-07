@@ -22,7 +22,7 @@ import UserContext from "./Contexts/UserContext";
 
 const App = () => {
   const { user, setUser } = useContext(UserContext);
-  const [Posts, setPosts] = useState([]);
+  const [Posts, setPosts] = useState(null);
 
   useEffect(() => {
     // Get user info from localStorage
