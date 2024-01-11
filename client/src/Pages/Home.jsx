@@ -67,9 +67,11 @@ const Home = ({ data }) => {
         )}
       </div>
 
-      <button id="btn">
-        See More <i class="fa-solid fa-arrow-right-long" style={{ marginLeft: "5px" }}></i>
-      </button>
+      <Link to="/blogs">
+        <button id="btn">
+          See More <i class="fa-solid fa-arrow-right-long" style={{ marginLeft: "5px" }}></i>
+        </button>
+      </Link>
     </>
   );
 };

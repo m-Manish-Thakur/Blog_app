@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import UserContext from "../Contexts/UserContext";
 import axios from "axios";
 import { SERVER_URL } from "../Constants";
+import { toast } from "react-toastify";
 
 const SinglePost = () => {
   const { user } = useContext(UserContext);
@@ -39,33 +40,40 @@ const SinglePost = () => {
   }, [userHasLiked]);
 
   const handleLike = async () => {
-    if (!isLiking) {
-      setIsLiking(true);
-
-      try {
-        if (post) {
-          const response = await axios.post(`${SERVER_URL}/api/${post._id}/like`, { userId });
-          const updatedPost = response.data;
-          setLikes(updatedPost.likes.length);
+    if (user) {
+      if (!isLiking) {
+        setIsLiking(true);
+        try {
+          if (post) {
+            const response = await axios.post(`${SERVER_URL}/api/${post._id}/like`, { userId });
+            const updatedPost = response.data;
+            setLikes(updatedPost.likes.length);
+          }
+        } catch (err) {
+          console.error("Error while liking the post:", err);
         }
-      } catch (err) {
-        console.error("Error while liking the post:", err);
       }
+    } else {
+      toast.error("Login or Register Please");
     }
   };
 
   // Handle Comments  ---------------------------------------------
   const handleComment = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(`${SERVER_URL}/api/${post._id}/comment`, {
-        comment: comment,
-        author: user.username,
-      });
-      setComments(response.data.comments);
-      setComment("");
-    } catch (error) {
-      console.error("Error adding comment:", error);
+    if (user) {
+      try {
+        const response = await axios.post(`${SERVER_URL}/api/${post._id}/comment`, {
+          comment: comment,
+          author: user.username,
+        });
+        setComments(response.data.comments);
+        setComment("");
+      } catch (error) {
+        console.error("Error adding comment:", error);
+      }
+    } else {
+      toast.error("Login or Register Please");
     }
   };
 
@@ -78,19 +86,15 @@ const SinglePost = () => {
             <div className="d-flex justify-content-between align-items-center px-2 py-3">
               <h5>{post.username ? `@${post.username}` : "@John Dev"}</h5>
               <div className="d-flex gap-4 align-items-center">
-                {user ? (
-                  <button
-                    id="like"
-                    onClick={handleLike}
-                    disabled={isLiking}
-                    style={isLiking ? { background: "royalblue", color: "white" } : { background: "gray" }}
-                  >
-                    {likes} {userHasLiked ? "Liked" : isLiking ? "Liked" : "Like"}
-                    <i className="fa-regular fa-thumbs-up" style={{ paddingLeft: "5px" }}></i>
-                  </button>
-                ) : (
-                  <></>
-                )}
+                <button
+                  id="like"
+                  onClick={handleLike}
+                  disabled={isLiking}
+                  style={isLiking ? { background: "royalblue", color: "white" } : { background: "gray" }}
+                >
+                  {likes} {userHasLiked ? "Liked" : isLiking ? "Liked" : "Like"}
+                  <i className="fa-regular fa-thumbs-up" style={{ paddingLeft: "5px" }}></i>
+                </button>
 
                 <i className="fa-regular fa-bookmark fs-4"></i>
                 <i className="fa-regular fa-share-from-square fs-4"></i>
@@ -109,27 +113,22 @@ const SinglePost = () => {
                 </button>
               </form>
             </div>
-
-            {user ? (
-              <div id="commentsContainer">
-                <h4>Comments</h4>
-                {comments.map((item) => (
-                  <div className="content">
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
-                      style={{ height: "35px", width: "35px" }}
-                    />
-                    <div className="item">
-                      <p className="author">{item.author}</p>
-                      <p className="date">{new Date(item.date).toDateString()}</p>
-                      <p className="comment">{item.comment}</p>
-                    </div>
+            <div id="commentsContainer">
+              <h4>Comments</h4>
+              {comments.map((item) => (
+                <div className="content">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
+                    style={{ height: "35px", width: "35px" }}
+                  />
+                  <div className="item">
+                    <p className="author">{item.author}</p>
+                    <p className="date">{new Date(item.date).toDateString()}</p>
+                    <p className="comment">{item.comment}</p>
                   </div>
-                ))}
-              </div>
-            ) : (
-              <></>
-            )}
+                </div>
+              ))}
+            </div>
           </div>
         ) : (
           <div>

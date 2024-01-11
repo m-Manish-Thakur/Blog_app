@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { SERVER_URL } from "../Constants";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
@@ -27,7 +27,7 @@ const Register = () => {
         },
       });
 
-      navigate("/");
+      navigate("/user/login");
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error === "User already exists") {
         toast.error("Username already exists");

@@ -3,9 +3,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 import UserContext from "../Contexts/UserContext";
 const Navbar = () => {
-  const { user, setUser, token, setToken } = useContext(UserContext);
-
-  // console.log(user);
+  const { user } = useContext(UserContext);
 
   return (
     <>
