@@ -12,7 +12,10 @@ const Navbar = () => {
       <div>
         <nav id="navbar">
           <Link to="/">
-            <img src="https://images.saasworthy.com/blogify_43430_logo_1683683755_kfxrm.png" />
+            <img
+              src="https://ph-files.imgix.net/29a11823-9dc5-4cd1-b31e-d8e964c16db7.png?auto=format&fit=crop&frame=1&h=512&w=1024"
+              style={{ mixBlendMode: "overlay" }}
+            />
           </Link>
 
           <div className="navLinks">
@@ -153,9 +156,7 @@ const Navbar = () => {
               ) : (
                 <div>
                   <Link to="/user/login">
-                    <a href="#" className="mx-4" data-bs-dismiss="offcanvas" aria-label="Close">
-                      Login
-                    </a>
+                    <p>Login</p>
                   </Link>
                   <Link to="/user/register">
                     <button type="button" class="btn btn-success mt-4" data-bs-dismiss="offcanvas" aria-label="Close">

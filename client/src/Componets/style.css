@@ -1,264 +1,254 @@
-#navbar{
-    background: rgba( 255, 255, 255, 0.2 );
-    backdrop-filter: blur( 15.5px );
-    -webkit-backdrop-filter: blur( 15.5px );
-    border: 1px solid rgba(189, 189, 189, 0.18);
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: 10;
-    padding: 5px 5vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+#navbar {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15.5px);
+  -webkit-backdrop-filter: blur(15.5px);
+  border: 1px solid rgba(189, 189, 189, 0.18);
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+  padding: 0px 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-#navbar img{
-    height: 60px;
+#navbar img {
+  height: 65px;
+  mix-blend-mode: multiply;
+}
+#navbar .navLinks {
+  display: flex;
+  align-items: center;
+}
+#navbar a {
+  color: rgb(37, 56, 66);
+  text-decoration: none;
+  padding: 5px 10px;
+}
+#navbar button {
+  padding: 7px 20px;
+  border-radius: 10px;
+  border: none;
+  background: rgb(37, 56, 66);
+}
+#navbar #buttonToggle {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  #navbar {
+    padding: 7px 20px 7px 5px;
+  }
+  #navbar .navLinks {
+    display: none;
+  }
+  #navbar img {
+    height: 50px;
     mix-blend-mode: multiply;
-}
-#navbar .navLinks{
-    display: flex;
-    align-items: center;
-}
-#navbar a{
+  }
+  #navbar #buttonToggle {
+    display: block;
+    font-size: 30px;
+  }
+  #offcanvasWithBothOptions {
+    width: 300px;
+    height: 100vh;
+  }
+  #offcanvasWithBothOptions #offcanvasBody {
+    text-align: center;
+  }
+  #navbar a {
     color: rgb(37, 56, 66);
     text-decoration: none;
     padding: 5px 10px;
-}
-#navbar button{
-    padding: 7px 20px;
-    border-radius: 10px;
-    border: none;
-    background: rgb(37, 56, 66);
-}
-#navbar #buttonToggle{
-    display: none;
-}
-
-@media screen and (max-width: 800px){
-    #navbar{
-        padding: 7px 20px 7px 5px;
-    }
-    #navbar .navLinks{
-        display: none;
-    } 
-    #navbar img{
-        height: 50px;
-        mix-blend-mode: multiply;
-    }    
-    #navbar #buttonToggle{
-        display: block;
-        font-size: 30px;
-    }
-    #offcanvasWithBothOptions{
-        width: 300px;
-        height: 100vh;
-    }
-    #offcanvasWithBothOptions #offcanvasBody{
-        text-align: center;
-    }
-    #navbar a{
-        color: rgb(37, 56, 66);
-        text-decoration: none;
-        padding: 5px 10px;
-        font-size: 18px;
-    }
+    font-size: 18px;
+  }
 }
 
 /* ######################################   RESPONSIVE   ####################################### */
 
-
-
-
 /* #####################   POST  ######################### */
 
-#post{
-    width: 400px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px;
-    background-color: rgb(246, 246, 246);
-    margin-top: 40px; 
-    overflow: hidden;
-    cursor: pointer;
+#post {
+  width: 400px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px;
+  background-color: rgb(246, 246, 246);
+  margin-top: 40px;
+  overflow: hidden;
+  cursor: pointer;
 }
-#post img{
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px;
-    cursor: pointer;
+#post img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: rgba(100, 93, 93, 0.02) 0px 1px 2px 0px, rgba(78, 82, 85, 0.15) 0px 0px 0px 1px;
+  cursor: pointer;
 }
-#post:hover img{
-    transform: scale(1.03, 1.03);
+#post:hover img {
+  transform: scale(1.03, 1.03);
 }
-#post h3{
-    font-size: 23px;
-    font-family: 'montserrat';
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-top: 10px;
+#post h3 {
+  font-size: 23px;
+  font-family: "montserrat";
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
 }
-#post:hover h3{
-    color: rgb(44, 85, 147);
+#post:hover h3 {
+  color: rgb(44, 85, 147);
 }
-#post #desc{
+#post #desc {
+  letter-spacing: 0.3px;
+  color: rgb(64, 64, 64);
+  font-size: 15px;
+}
+#post h6 {
+  font-weight: 600;
+  color: rgb(77, 86, 102);
+  background-color: rgb(210, 226, 241);
+  padding: 5px 10px;
+  border-radius: 30px;
+}
+#post #author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#post h5 {
+  color: rgb(81, 81, 81);
+  font-size: 16px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+  #post {
+    width: 350px;
+    padding: 10px;
+    margin-top: 30px;
+  }
+  #post h3 {
+    font-size: 20px;
+  }
+  #post #desc {
     letter-spacing: 0.3px;
     color: rgb(64, 64, 64);
     font-size: 15px;
+  }
 }
-#post h6{
-    font-weight: 600;
-    color: rgb(77, 86, 102);
-    background-color: rgb(210, 226, 241);
-    padding: 5px 10px;
-    border-radius: 30px;
-}
-#post #author{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-#post h5{
-    color: rgb(81, 81, 81);
-    font-size: 16px;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-}
-
-@media screen and (max-width: 450px){
-    #post{
-        width: 350px;
-        padding: 10px;
-        margin-top: 30px; 
-    } 
-    #post h3{
-        font-size: 20px;
-    }
-    #post #desc{
-        letter-spacing: 0.3px;
-        color: rgb(64, 64, 64);
-        font-size: 15px;
-    }
-}
-
-
-
 
 /* #####################    FOOTER    ########################### */
 
-#footer{
-    width: 100vw;
-    padding: 50px 3vw;
-    background-color: rgb(28, 46, 76);
+#footer {
+  width: 100vw;
+  padding: 50px 3vw;
+  background-color: rgb(28, 46, 76);
 }
-#footerContainer{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    background-color: rgb(28, 46, 76);
-    row-gap: 50px;
+#footerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: rgb(28, 46, 76);
+  row-gap: 50px;
+  margin-top: 50px;
+}
+#footer .item {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+#footer .item h2 {
+  font-size: 23px;
+  font-family: "poppins";
+  color: rgb(172, 200, 224);
+}
+#footer .item a {
+  margin-top: 15px;
+  color: rgb(115, 139, 161);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+}
+
+#footer .item h3 {
+  font-size: 23px;
+  font-family: "poppins";
+  color: rgb(215, 232, 247);
+  font-weight: 700;
+}
+#footer .item i {
+  color: rgb(215, 232, 247);
+  border: 1px solid rgb(215, 232, 247);
+  border-radius: 50%;
+  font-size: 17px;
+  padding-top: 11px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin: 20px 5px;
+  cursor: pointer;
+}
+#footer .item i:hover {
+  background-color: rgb(215, 232, 247);
+  color: rgb(28, 46, 76);
+}
+#footer .item p {
+  margin-top: 15px;
+  color: rgb(115, 139, 161);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+@media screen and (max-width: 500px) {
+  #footerContainer {
+    justify-content: flex-start;
     margin-top: 50px;
+  }
 }
-#footer .item{
-    width: 200px;
-    display: flex;
-    flex-direction: column;   
-}
-#footer .item h2{
-    font-size: 23px;
-    font-family: 'poppins';
-    color: rgb(172, 200, 224);
-}
-#footer .item a{
-    margin-top: 15px;
-    color: rgb(115, 139, 161);
-    text-decoration: none;
-    letter-spacing: 0.3px;
-}   
-
-#footer .item h3{
-    font-size: 23px;
-    font-family: 'poppins';
-    color: rgb(215, 232, 247);
-    font-weight: 700;
-}
-#footer .item i{
-    color: rgb(215, 232, 247);
-    border: 1px solid rgb(215, 232, 247);
-    border-radius: 50%;
-    font-size: 17px;
-    padding-top: 11px;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    margin: 20px 5px;
-    cursor: pointer;
-}
-#footer .item i:hover{
-    background-color: rgb(215, 232, 247);
-    color: rgb(28, 46, 76);
-}
-#footer .item p{
-    margin-top: 15px;
-    color: rgb(115, 139, 161);
-    text-decoration: none;
-    letter-spacing: 0.5px;
-}   
-
-
-@media screen and (max-width: 500px){
-    #footerContainer{
-        justify-content: flex-start;
-        margin-top: 50px;
-    }
-}
-
-
-
 
 /* ##################################   UPDATE POST   ######################################## */
 
-#updatePost{
-    width: 100vw;
-    min-height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(147, 148, 149, 0.459);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#updatePost {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(147, 148, 149, 0.459);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#updatePost .container{
-    width: 660px;
-    min-height: 550px;
-    padding: 20px 30px;
-    border-radius: 10px;
-    background-color: white;
+#updatePost .container {
+  width: 660px;
+  min-height: 550px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: white;
 }
-#updatePost .container label{
-    margin-top: 20px;
-    font-size: 17px;
-    letter-spacing: 0.3px;
-    font-family: 'poppins';
-    font-weight: 600;
+#updatePost .container label {
+  margin-top: 20px;
+  font-size: 17px;
+  letter-spacing: 0.3px;
+  font-family: "poppins";
+  font-weight: 600;
 }
-#updatePost .container input{
-    width: 100%;
-    border: none;
-    border-bottom: 2px solid rgb(154, 154, 154);
-    font-size: 20px;
-    outline: none;
-    padding: 10px 0;
+#updatePost .container input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgb(154, 154, 154);
+  font-size: 20px;
+  outline: none;
+  padding: 10px 0;
 }
-#updatePost .container textarea{
-    width: 100%;
-    border: none;
-    border-bottom: 2px solid rgb(154, 154, 154);
-    font-size: 15px;
-    outline: none;
-    padding: 10px 0;
+#updatePost .container textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgb(154, 154, 154);
+  font-size: 15px;
+  outline: none;
+  padding: 10px 0;
 }
