@@ -21,7 +21,6 @@ const SinglePost = () => {
         setPost(response.data);
         setLikes(response.data.likes.length);
         setComments(response.data.comments);
-        console.log(comments);
       })
       .catch((error) => {
         console.error("Error fetching post:", error);
@@ -79,7 +78,7 @@ const SinglePost = () => {
             <div className="d-flex justify-content-between align-items-center px-2 py-3">
               <h5>{post.username ? `@${post.username}` : "@John Dev"}</h5>
               <div className="d-flex gap-4 align-items-center">
-                {!user ? (
+                {user ? (
                   <button
                     id="like"
                     onClick={handleLike}
@@ -111,7 +110,7 @@ const SinglePost = () => {
               </form>
             </div>
 
-            {!user ? (
+            {user ? (
               <div id="commentsContainer">
                 <h4>Comments</h4>
                 {comments.map((item) => (
